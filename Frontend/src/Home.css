@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1d1e22;
+    color: #fff;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #2c2f36;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    box-sizing: border-box; /* Ezzel biztosítjuk, hogy a padding és margin ne növelje a szélességet */
+}
+
+.navbar h1 {
+    font-size: 1.5rem;
+    color: #fbc02d; /* Sárga szín */
+}
+
+.navbar-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+button {
+    background-color: #fbc02d; /* Sárga gombok */
+    color: #1d1e22;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap; /* Megakadályozza, hogy a szöveg több sorba törjön */
+}
+
+button:hover {
+    background-color: #e6a800; /* Sötétebb sárga hover */
+}
+
+button:focus {
+    outline: none;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* A tartalom a sáv alatt legyen */
+.content {
+    margin-top: 4rem; /* Azért, hogy ne fedje el a sáv a tartalmat */
+    text-align: center;
+    padding: 2rem;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
