@@ -1,25 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import HomeScreen from './Components/HomeScreen';
+import LogInScreen from './Components/LogInScreen';
+import SignUpScreen from './Components/SignUpScreen';
+import MyProfileScreen from './Components/MyProfileScreen';
+import { AuthContext } from './Services/Auth';
 import { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './Home';
-import LogIn from './LogIn';
-import SignUp from './SignUp';
-import { format } from 'path'; 
+import { ProfilePanelContext } from './Services/ProfilePanel';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <HomeScreen />, // guest,User
+  },
+  {
+    path: "login",
+    element: <LogInScreen /> // guest, user
+  },
+  {
+    path: "signup",
+    element: <SignUpScreen /> // guest only
+  },
+  {
+    path: "myprofile",
+    element: <MyProfileScreen /> // user
+  }
+])
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isProfilePanelOpen, setIsProfilePanelOpen] = useState(false)
+
   return (
-    <>
-    <Router>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='login' element={<LogIn/>}/>
-          <Route path='signup' element={<SignUp/>}/>
-        </Routes>
-    </Router>
-    </>
+    <AuthContext.Provider value={{
+      isLoggedIn,
+      logIn: () => { setIsLoggedIn(true) },
+      logOut: () => { setIsLoggedIn(false)}
+    }}>
+      <ProfilePanelContext.Provider value={{
+        isProfilePanelOpen,
+        doOpen: () => { setIsProfilePanelOpen(true)},
+        onClose: () => { setIsProfilePanelOpen(false)}
+      }}>
+        <RouterProvider router={router} />
+      </ProfilePanelContext.Provider>
+    </AuthContext.Provider>
   );
 }
 

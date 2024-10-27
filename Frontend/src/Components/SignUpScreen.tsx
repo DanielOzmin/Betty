@@ -1,7 +1,15 @@
 import { useNavigate } from "react-router-dom"
+import { AuthContext } from "../Services/Auth"
+import { useContext } from "react";
+import { Navigate } from "react-router-dom";
 
-const Register =()=>{
+export default function SignUpScreen(){
     const navigate = useNavigate();
+    const { isLoggedIn } = useContext(AuthContext)
+    if(isLoggedIn){
+        return <Navigate to="/"/>
+    }
+    
     const handleSignUp=()=>{
         navigate("/login");
     }
@@ -20,4 +28,3 @@ const Register =()=>{
     )
 }
 
-export default Register;

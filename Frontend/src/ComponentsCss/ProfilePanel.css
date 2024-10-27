@@ -1,0 +1,51 @@
+.profile-panel {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 60px;
+    right: 0;
+    bottom: 0;
+    width: 33%; /* A kívánt szélesség, amikor meg van nyitva */
+    background-color: #2c2f36;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding-top: 20px;
+    overflow-x: hidden;
+    transform: translateX(100%); /* Alaphelyzet: kívül jobbra */
+    opacity: 0; /* Kezdeti állapot: láthatatlan */
+    transition: transform 2.5s ease, opacity 2.5s ease; /* Transition mindkét tulajdonságra */
+    z-index: 1;
+}
+
+/* Az .open osztály aktiválása */
+.profile-panel.open {
+    transform: translateX(0); /* Becúszik a képernyőre */
+    opacity: 1; /* Láthatóvá válik */
+}
+
+.profile-panel p{
+    flex: 1;
+}
+
+
+
+
+/* .profile-panel {
+    position: fixed;
+    top: 0;
+    right: -100%; 
+    width: 33.33%; 
+    height: 100vh;
+    background-color: #2c2f36;
+    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    color: #fff;
+    transition: transform 0.3s ease;
+    transform: translateX(0);
+    z-index: 200;
+}
+.profile-panel.open {
+    transform: translateX(-100%); /* Becúszik a jobb oldalról
+}  */
+
+
+
