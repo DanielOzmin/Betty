@@ -7,6 +7,9 @@ export default function MyProfileScreen(){
     if(!isLoggedIn){
         return <Navigate to="/"/>
     }
+    //itt lesz az összes fogadás amit eddig kötöttél, akár lejárt akár nem
+    //statisztika, milyen arányban van befektetett pénzed és a nyereséged/veszteséged
+    //szerkeztési lehetőség profil adatok stb, opcionálisan kép. 
     return(
         <div>MyProfileScreeen</div>
     )
